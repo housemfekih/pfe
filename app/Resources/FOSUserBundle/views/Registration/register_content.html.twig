@@ -1,0 +1,91 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+ <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+ <div class="login100-pic js-tilt" data-tilt>
+          <img src="{{ asset('images/logo.png') }}"/>
+        </div>
+ 
+
+ <form class="login100-form validate-form" action="{{ path("fos_user_registration_register") }}" method="post">
+    <div id="fos_user_registration_form">
+ 
+
+                    <span class="login100-form-title">
+                        Member Register
+                    </span>
+
+    <div class="wrap-input100 validate-input" >
+                       <input class="input100" type="text" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" placeholder="{{ 'email' }}" required="required" autocomplete="email" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+                       <div class="wrap-input100 validate-input" >
+                       <input class="input100" type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" placeholder="{{ 'username' }}" required="required" autocomplete="username" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+   
+         <div class="wrap-input100 validate-input" >
+                       <input class="input100" type="text" id="fos_user_registration_form_last_name" name="fos_user_registration_form[last_name]" placeholder="{{ 'prenom' }}"  required="required" autocomplete="last_name" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+                        <div class="wrap-input100 validate-input" >
+                       <input class="input100" type="text" id="fos_user_registration_form_first_name" name="fos_user_registration_form[first_name]" placeholder="{{ 'nom' }}" required="required" autocomplete="first_name" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+<div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" placeholder="{{ 'mot de passe' }}"  />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" id="fos_user_registration_form_plainPassword_second" placeholder="{{ 'repeter le mot de passe' }}" name="fos_user_registration_form[plainPassword][second]" required="required"  />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+ <div class="container-login100-form-btn">               
+     <input class="login100-form-btn" type="submit" value="{{ 'registration.submit'|trans }}">
+    </div>
+
+                   
+
+
+
+  </div></form>     
+
+   </div> 
+
+
+    
+</div>
+ </div>
+
+
+
+            
