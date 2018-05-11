@@ -1,0 +1,43 @@
+{% extends "admin.html.twig" %}
+{% block body %}
+    <h1>Section</h1>
+
+<table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ section.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomsection</th>
+                <td>{{ section.nomSection }}</td>
+            </tr>
+            <tr>
+                <th>Nvnomsection</th>
+                <td>{{ section.nvNomSection }}</td>
+            </tr>
+			<tr>
+                <th>Champs : </th>
+                <td>
+				{% for champs in section.sectionChampsRel %}
+					{{ champs.id }} - {{ champs.nomChamps }} |
+				{% endfor %}
+				</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sections_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sections_edit', { 'id': section.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

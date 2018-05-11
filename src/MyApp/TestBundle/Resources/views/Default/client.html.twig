@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+<h1>Page utilisateur </h1>
+
+<p> Vous ete un
+{% if is_granted('ROLE_ADMIN') %}
+    <b>Admin</b>
+{% endif %}
+
+
+    {% if is_granted('ROLE_USER') %}
+        <b>USER</b>
+    {% endif %}
+
+</p>
+
+{% endblock %}

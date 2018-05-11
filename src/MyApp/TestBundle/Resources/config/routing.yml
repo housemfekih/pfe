@@ -1,0 +1,9 @@
+test_homepage:
+    path:     /default
+    defaults: { _controller: TestBundle:Default:index }
+admin:
+    path:     /admin
+    defaults: { _controller: TestBundle:Admin:admin }
+user:
+    path:     /users
+    defaults: { _controller: TestBundle:User:user }

@@ -1,13 +1,17 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
- <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100">
+             <div class="container">
+                <h1>
+                               {% if error %}
+                              <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                              {% endif %}
+                 </h1>   </div>
+
  <div class="login100-pic js-tilt" data-tilt>
-          <img src="{{ asset('images/logo.png') }}"/>
+          <img src="{{ asset('images/login.png') }}"/>
+
+
         </div>
-
-
      
  <form class="login100-form validate-form" action="{{ path("fos_user_security_check") }}" method="post">
          {% if csrf_token %}
@@ -16,7 +20,10 @@
 
                     <span class="login100-form-title">
                         Member Login
+                
                     </span>
+
+                   
 
     <div class="wrap-input100" >
                        <input class="input100" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
@@ -47,20 +54,21 @@
 <div class="container-login100-form-btn">
                         
                             <input class="login100-form-btn" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                        
+
                     </div>
 
                     <div class="text-center p-t-12">
                         <span class="txt1">
                             Forgot
                         </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
+                        <a class="txt2" href="{{ path('fos_user_resetting_request') }}" >
+                            Username / Passwordd?
                         </a>
                     </div>
 
                     <div class="text-center p-t-136">
-                        <a class="txt2" href="#">
+                        <a class="txt2" href="{{ path('fos_user_registration_register') }}">
+                            
                             Create your Account
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
@@ -72,10 +80,3 @@
 
    </div> 
 </form>
-    <div class="container">
-    {% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
- </div>
-</div>
- </div>

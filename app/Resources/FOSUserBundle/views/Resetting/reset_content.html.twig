@@ -1,8 +1,27 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+   
+<div id="fos_user_registration_form">
+
+ <div class="wrap-input100 validate-input" >
+{{ form_widget(form.plainPassword.first, {'attr': {'class': 'input100', 'placeholder': "Nouveau mot de passe"} }  ) }}                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+ <div class="wrap-input100 validate-input" >
+{{ form_widget(form.plainPassword.second, {'attr': {'class': 'input100', 'placeholder': "repeter mot de passe"} }  ) }}                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+     <div class="container-login100-form-btn">
+     <input class="login100-form-btn" type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
     </div>
+
+
 {{ form_end(form) }}
+</div>

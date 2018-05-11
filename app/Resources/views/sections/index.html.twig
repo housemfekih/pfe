@@ -1,0 +1,41 @@
+{% extends "admin.html.twig" %}
+{% block body %}
+    <h1>Sections list</h1>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomsection</th>
+                <th>Nvnomsection</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for section in sections %}
+            <tr>
+                <td><a href="{{ path('sections_show', { 'id': section.id }) }}">{{ section.id }}</a></td>
+                <td>{{ section.nomSection }}</td>
+                <td>{{ section.nvNomSection }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sections_show', { 'id': section.id }) }}"<span class="glyphicon glyphicon-search"> </span></a>
+
+            </li>
+                        <li>
+                            <a href="{{ path('sections_edit', { 'id': section.id }) }}" <span class="glyphicon glyphicon-pencil"> </span></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sections_new') }}">Create a new section</a>
+        </li>
+    </ul>
+{% endblock %}

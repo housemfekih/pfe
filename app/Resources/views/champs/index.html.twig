@@ -1,0 +1,39 @@
+{% extends "admin.html.twig" %}
+{% block body %}
+    <h1>Champs list</h1>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomchamps</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for champ in champs %}
+            <tr>
+                <td><a href="{{ path('champs_show', { 'id': champ.id }) }}">{{ champ.id }}</a></td>
+                <td>{{ champ.nomChamps }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('champs_show', { 'id': champ.id }) }}"<span class="glyphicon glyphicon-search"> </span></a>
+                        </li>
+                        <li>
+                     
+                            <a href="{{ path('champs_edit', { 'id': champ.id }) }}"<span class="glyphicons glyphicons-pencil"></span></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('champs_new') }}">Create a new champ</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,3 +1,27 @@
+app_cv:
+    resource: "@AppBundle/Controller/CvController.php"
+    type:     annotation
+
+app_sections:
+    resource: "@AppBundle/Controller/SectionsController.php"
+    type:     annotation
+
+app_groupes:
+    resource: "@AppBundle/Controller/GroupesController.php"
+    type:     annotation
+
+app_templates:
+    resource: "@AppBundle/Controller/TemplatesController.php"
+    type:     annotation
+
+app_champs:
+    resource: "@AppBundle/Controller/ChampsController.php"
+    type:     annotation
+
+test:
+    resource: "@TestBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

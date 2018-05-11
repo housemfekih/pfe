@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -21,19 +23,29 @@ class User extends BaseUser
 
 
      /**
-         * @ORM\Column(type="string")
+         * @ORM\Column(type="string", nullable=true)
          */
         protected $first_name;
 
          /**
-         * @ORM\Column(type="string")
+         * @ORM\Column(type="string", nullable=true)
          */
         protected $last_name;
+
+        
+            /**
+         * @ORM\Column(type="string", nullable=true)
+         *
+         * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+         * @Assert\File(mimeTypes={ "text/html" })
+         */
+          private $avatar;
+
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+     $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -82,5 +94,25 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
+    }
+
+    /**
+     * Get the value of avatar
+     */ 
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Set the value of avatar
+     *
+     * @return  self
+     */ 
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 }

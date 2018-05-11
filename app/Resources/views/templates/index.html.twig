@@ -1,0 +1,40 @@
+{% extends "admin.html.twig" %}
+{% block body %}
+    <h1>Templates list</h1>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomtemlate</th>
+                <th>Fichiernom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for template in templates %}
+            <tr>
+                <td><a href="{{ path('templates_show', { 'id': template.id }) }}">{{ template.id }}</a></td>
+                <td>{{ template.nomTemlate }}</td>
+                <td>{{ template.fichierNom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('templates_show', { 'id': template.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('templates_edit', { 'id': template.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('templates_new') }}">Create a new template</a>
+        </li>
+    </ul>
+{% endblock %}
