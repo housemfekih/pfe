@@ -33,7 +33,8 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
-
+    #fos_user.profile.admin:
+      #  class: FOS\UserBundle\Controller\ProfileAdminController
     redirect.after.login:
         class: AppBundle\Listener\AfterLoginRedirection
         arguments: ['@router']
@@ -41,5 +42,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
 parameters:
     template_directory: '%kernel.project_dir%/public/uploads/templates'

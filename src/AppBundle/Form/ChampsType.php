@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 
 class ChampsType extends AbstractType
 {
@@ -20,9 +23,28 @@ class ChampsType extends AbstractType
             'label' => "Nom de champ : ",
             'attr' => ['class' => 'form-control'],
             'label_attr' => ['class' => 'form-control-label']
+        )) ->add('typeChamps', ChoiceType::class, array(
+                'choices'  => array(
+                    'String' => true,
+                    'Number' => true,
+                    'char' => true,
+                ),
+                'label' => "Type de champ : ",
+                'attr' => ['class' => 'form-control'],
+                'label_attr' => ['class' => 'form-control-label']
 
-
-        ));
+        ))
+            ->add('longeurChamps', IntegerType::class, array('attr' => array(
+                'min' => '1',
+                'max' => '20',
+                'class' => 'form-control',
+            )))
+           // ->add('longeurChamps', IntegerType::class, array(
+               // 'label' => "Longeur de champ : ",
+                //'attr' => ['class' => 'form-control'],
+                //'label_attr' => ['class' => 'form-control-label']
+            //))
+        ;
     }/**
      * {@inheritdoc}
      */

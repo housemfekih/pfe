@@ -1,16 +1,24 @@
 {% extends "admin.html.twig" %}
 {% block body %}
-    <h1>Champ</h1>
+    <h1>Champ | {{ champ.nomChamps }}</h1>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ champ.id }}</td>
             </tr>
             <tr>
-                <th>Nomchamps</th>
+                <th>Nom Champs</th>
                 <td>{{ champ.nomChamps }}</td>
+            </tr>
+            <tr>
+                <th>Type Champs</th>
+                <td>{{ champ.typeChamps }}</td>
+            </tr>
+            <tr>
+                <th>Longeur Champs</th>
+                <td>{{ champ.longeurChamps }}</td>
             </tr>
         </tbody>
     </table>

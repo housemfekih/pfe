@@ -7,6 +7,8 @@
             <tr>
                 <th>Id</th>
                 <th>Nomchamps</th>
+                <th>TypeChamps</th>
+                <th>LongeurChamps</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,6 +17,8 @@
             <tr>
                 <td><a href="{{ path('champs_show', { 'id': champ.id }) }}">{{ champ.id }}</a></td>
                 <td>{{ champ.nomChamps }}</td>
+                <td>{{ champ.TypeChamps }}</td>
+                <td>{{ champ.LongeurChamps }}</td>
                 <td>
                     <ul>
                         <li>

@@ -27,8 +27,53 @@ class Champs
      * @ORM\Column(name="nomChamps", type="string", length=255)
      */
     private $nomChamps;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeChamps", type="string", length=255)
+     */
+    private $typeChamps; /**
+     * @var string
+     *
+     * @ORM\Column(name="longeurChamps", type="string", length=255)
+     */
+    private $longeurChamps;
 
 
+
+
+
+    /**
+     * @return string
+     */
+    public function getTypeChamps()
+    {
+        return $this->typeChamps;
+    }
+
+    /**
+     * @param string $typeChamps
+     */
+    public function setTypeChamps($typeChamps)
+    {
+        $this->typeChamps = $typeChamps;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongeurChamps()
+    {
+        return $this->longeurChamps;
+    }
+
+    /**
+     * @param string $longeurChamps
+     */
+    public function setLongeurChamps($longeurChamps)
+    {
+        $this->longeurChamps = $longeurChamps;
+    }
     /**
      * Get id.
      *
