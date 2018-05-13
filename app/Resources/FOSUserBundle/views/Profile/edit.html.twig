@@ -1,6 +1,10 @@
+{% if app.user.roles[0] != 'ROLE_ADMIN' %}
+{% set foo = 'user.html.twig' %}
+{% else %}
+{% set foo = 'admin.html.twig' %}
 
-{% extends "user.html.twig" %}
-
+{% endif %}
+{% extends foo %}
 
 
 {% block fos_user_content %}

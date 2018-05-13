@@ -190,22 +190,22 @@ class TemplatesController extends Controller
 		$group = $template->getGroupeId();
 		$sectionTab = [];
 		$sections = $template->getGroupeId()->getSectionsGroupeRel();
+		
+		
 		foreach ($sections as $section) {
-			$sectionTab[$section->getId()] = $section->getNomSection();
+			$champ_tab = [];
+			$champs = $section->getSectionChampsRel();
+			foreach ($champs as $champ) {
+				$champ_tab[$champ->getId()] = $champ->getNomChamps();
+			}
+			array_push( $sectionTab,["id" => $section->getId(),"name" => $section->getNomSection(),"champs" => $champ_tab]);
 			
         }
-      //  $champTab=[];
-       // $champs = $sectio->getSectionChampsRel();
-        //foreach ($champs as $champ) {
-		//	$champTab[$champ->getId()] = $champ->getNomChamps();
-			
-        //}
+
 		
+		$res = ['name'=>$template->getGroupeId()->getNomGroupe(),
+		'sections' => $sectionTab];
 		
-		$res = ['template' => $template->getNomTemlate(),
-		'group' => ['name'=>$template->getGroupeId()->getNomGroupe(),
-		'sections' => $sectionTab]
-		];
 		
 		return new JsonResponse($res);
 		

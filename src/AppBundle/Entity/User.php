@@ -31,7 +31,7 @@ class User extends BaseUser
          * @ORM\Column(type="string", nullable=true)
          */
         protected $last_name;
-
+        
         
             /**
          * @ORM\Column(type="string", nullable=true)

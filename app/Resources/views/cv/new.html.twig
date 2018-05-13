@@ -32,6 +32,12 @@
 				
                     {{ form_end(form) }}
 				</div>
+				<div class="row">
+					<h5>Creation</h5>
+					<div class="cv-build">
+						
+					</div>
+				</div>
 
         </div>
 	</section>
@@ -46,7 +52,7 @@
 	$(document).ready( function () {
 		$(".chosen-select").chosen({});
 		$(".tmpl").change( function () {
-			
+			$(".cv-build").html("");
 			
 		  $.ajax({
 		   url: "{{ path('get_one') }}",
@@ -56,8 +62,15 @@
 		   error: function() {
 			  $('#info').html('<p>An error has occurred</p>');
 		   },
-		   dataType: 'jsonp',
+		   dataType: 'text',
 		   success: function(data) {
+		   
+			var dataJson = $.parseJSON(data).sections;
+		   $.each(dataJson, function(key,value){
+				$.each(value, function(k,v){
+					$(".cv-build").append("<p>" + v + "</p>");
+				});
+			});
 			  
 		   },
 		   type: 'POST'

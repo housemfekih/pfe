@@ -45,15 +45,15 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
- // $file stores the uploaded PDF file
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $user->getAvatar();
+
+
+    $file = $template->getAvatar();
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
             // moves the file to the directory where brochures are stored
             $file->move(
-                $this->getParameter('avatars_directory'),
+                $this->getParameter('template_directory'),
                 $fileName
             );
 

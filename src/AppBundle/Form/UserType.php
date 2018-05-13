@@ -20,12 +20,20 @@ class UserType extends AbstractType
         ->add('first_name')
         //->add('avatar', 'file')
        // ->add('avatar', FileType::class, array('label' => 'Photo de profile'))
-        ->add('avatar', FileType::class, array(
-            'label' => "Avatar  : ",
-            'attr' => ['class' => 'form-control'],
-            'label_attr' => ['class' => 'form-control-label']))
-            ;
+     //   ->add('avatar', FileType::class, array(
+       //     'label' => "Avatar  : ",
+         //   'attr' => ['class' => 'form-control'],
+           // 'label_attr' => ['class' => 'form-control-label']))
+            //;
         
+
+          ->add('avatar', FileType::class, array(
+            'label' => " Avatar  : ",
+            'attr' => ['class' => 'form-control'],
+            'label_attr' => ['class' => 'form-control-label']
+
+
+        ));
     }/**
      * {@inheritdoc}
      */
