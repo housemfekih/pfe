@@ -6,7 +6,7 @@
             <h5 class="with-border m-t-lg">Creer votre CV</h5>
 
   <div class="row">
-                {{ form_start(form, {'attr': {'class': 'form-control'}}) }}
+                {{ form_start(form, {'attr': {'class': 'form-control form1'}}) }}
 					<div class="col-lg-4 float">
 						<fieldset class="form-group">
 							{{ form_row(form.nomCv) }}
@@ -34,10 +34,14 @@
 				</div>
 				<div class="row">
 					<h5>Creation</h5>
+					<div class="clear"></div>
+					<form id="new">
 					<div class="cv-build">
 						
 					</div>
+					</form>
 				</div>
+				{{ form_end(form) }}
 
         </div>
 	</section>
@@ -49,6 +53,16 @@
 {% endblock %}
 {% block javascripts %}
     <script>
+	function createCv() {
+	var fieldPair = {};
+	$("#new :input").each(function() {
+    if($(this).attr("name").length > 0) {
+        fieldPair[$(this).attr("name")] = $(this).val();
+    }
+});
+
+alert(fieldPair);
+	}
 	$(document).ready( function () {
 		$(".chosen-select").chosen({});
 		$(".tmpl").change( function () {
@@ -68,9 +82,22 @@
 			var dataJson = $.parseJSON(data).sections;
 		   $.each(dataJson, function(key,value){
 				$.each(value, function(k,v){
-					$(".cv-build").append("<p>" + v + "</p>");
+					if(k != "champs") {
+					$(".cv-build").append("<p id='s" + key + "'>" + v + "</p>");
+						
+						
+					}else {
+						$.each(v, function(cle,valeur){
+							if (valeur[1] != 'textarea') {
+								$(".cv-build").append("<p> " + valeur[0] +" <input type='" + valeur[1] + "' name='c" + cle + "' id='c" + cle +"'  maxlength='"  + valeur[2] +"'/></p>");
+							}else {
+								$(".cv-build").append("<p> " + valeur[0] +" <textarea   name='" + cle + "' id='c" + cle +"'/></p>");
+							}
+						});
+					}
 				});
 			});
+			$(".cv-build").append("<button id='submit' type='button'onClick='createCv()'>Valider</button>");
 			  
 		   },
 		   type: 'POST'

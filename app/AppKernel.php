@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new MyApp\TestBundle\TestBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-        
+            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

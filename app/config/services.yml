@@ -28,11 +28,24 @@ services:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
-
+ 
     app.form.registration:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+            #new 
+    app.form.profile:
+       class: AppBundle\Form\ProfileType
+       tags:
+           - { name: form.type, alias: app_user_profile }   
+           #up image 
+    #app.image_uploader:
+     #   class: AppBundle\ImageUpload
+      #  arguments: ['%avatars_directory%']
+   # AppBundle\ImageUpload:
+    #    arguments:
+     #       $targetDir: '%avatars_directory%'    
+    
     #fos_user.profile.admin:
       #  class: FOS\UserBundle\Controller\ProfileAdminController
     redirect.after.login:
@@ -43,5 +56,12 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    #app.doctrine_image_listener:
+     #   class: AppBundle\Listener\ImageUploadListener
+      #  arguments: ['@app.image_uploader']
+       # tags:
+        #    - { name: doctrine.event_listener, event: prePersist }
+         #   - { name: doctrine.event_listener, event: preUpdate } 
 parameters:
     template_directory: '%kernel.project_dir%/public/uploads/templates'
+    avatars_directory:  'public/uploads/avatars'

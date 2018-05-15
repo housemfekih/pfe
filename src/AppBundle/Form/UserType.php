@@ -27,13 +27,21 @@ class UserType extends AbstractType
             //;
         
 
-          ->add('avatar', FileType::class, array(
-            'label' => " Avatar  : ",
+        //  ->add('avatar', FileType::class, array(
+        //    'label' => " Avatar  : ",
+          //  'attr' => ['class' => 'form-control'],
+          //  'label_attr' => ['class' => 'form-control-label']
+			->add('image', FileType::class, array(
+            'label' => "Image(JPG)  : ",
             'attr' => ['class' => 'form-control'],
             'label_attr' => ['class' => 'form-control-label']
+            ->add('avatar', FileType::class, array('label' => 'Image(JPG)'))
 
 
-        ));
+        ))
+
+
+        ;
     }/**
      * {@inheritdoc}
      */

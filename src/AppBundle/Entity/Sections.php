@@ -39,7 +39,7 @@ class Sections
 
 
     /**
-  * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Champs", inversedBy="Sections")
+  * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Champs", cascade={"persist"})
 * @ORM\JoinTable(name="sectionChampsRel")  
 */
    private $sectionChampsRel;

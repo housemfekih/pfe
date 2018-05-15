@@ -27,6 +27,7 @@
         "friendsofsymfony/user-bundle": "^2.1",
         "hwi/oauth-bundle": "^0.6.2",
         "incenteev/composer-parameter-handler": "^2.0",
+        "mgilet/notification-bundle": "^2.0",
         "oyejorge/less.php": "v1.7.0.14",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.10",

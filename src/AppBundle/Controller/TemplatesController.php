@@ -196,9 +196,9 @@ class TemplatesController extends Controller
 			$champ_tab = [];
 			$champs = $section->getSectionChampsRel();
 			foreach ($champs as $champ) {
-				$champ_tab[$champ->getId()] = $champ->getNomChamps();
+				$champ_tab[$champ->getId()] = [$champ->getNomChamps(),$champ->getTypeChamps(),$champ->getLongeurChamps()];
 			}
-			array_push( $sectionTab,["id" => $section->getId(),"name" => $section->getNomSection(),"champs" => $champ_tab]);
+			 $sectionTab[$section->getId()] = ["name" => $section->getNomSection(),"champs" => $champ_tab];
 			
         }
 

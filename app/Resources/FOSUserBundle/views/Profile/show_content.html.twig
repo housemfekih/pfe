@@ -1,7 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
   <div class="login100-pic js-tilt" data-tilt>
-          <img src="{{ asset('images/profile.png') }}"/>
-        </div>
+
+
+<img src="{{ asset('public/uploads/avatars/' ~ user.image) }}" height="100px" width="250px" alt="sfd">
+
+
+        </div>  
 <div>
 <div class="fos_user_user_show wrap-input100">
 
@@ -12,6 +16,14 @@
                         </span>
                    
                    </div>
+
+
+                      <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <h6>Upload a different photo...</h6>
+        <img src="{{ asset('public/uploads/avatars/' ~ user.image) }}" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div>
+    </div>
 <div class="fos_user_user_show wrap-input100">
 <input class="input100" type="text" id="username" name="_username" value="{{ user.email  }}" required="required" autocomplete="username" disabled="true" />
                         <span class="focus-input100"></span>

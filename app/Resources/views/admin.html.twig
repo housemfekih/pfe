@@ -1,3 +1,4 @@
+{% trans_default_domain 'FOSUserBundle' %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -29,7 +30,8 @@
 	<header class="site-header">
 	    <div class="container-fluid">
 	        <a href="#" class="site-logo">
-	            <img class="hidden-md-down" src="{{ asset ('template_admin/img/admin_logo.jpg')}}" alt="">
+        <img src="{{ asset('public/uploads/avatars/' ~ app.user.getImage()) }}" class="avatar img-circle img-thumbnail" alt="avatar">
+	            
 	            <img class="hidden-lg-down" src="{{ asset ('template_admin/img/logo-2-mob.png')}}" alt="">
 	        </a>
 	
@@ -184,12 +186,13 @@
 	                        </div>
 	                    </div>
 	
-	         
-	
-	                    <div class="dropdown user-menu">
+	             			 <div class="dropdown user-menu">
 	                        <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <img src="img/avatar-2-64.png" alt="">
+							   <img src="{{ asset('public/uploads/avatars/' ~ app.user.image) }}" alt="dd" >
+
 	                        </button>
+	
+	                
 	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
 								<a class="dropdown-item" href="{{path('fos_user_profile_show')}}"><span class="font-icon glyphicon glyphicon-user"></span>Profile</a>
 								<a class="dropdown-item" href="{{path('fos_user_profile_edit')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Settings</a>

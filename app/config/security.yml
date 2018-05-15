@@ -21,6 +21,7 @@ security:
                 success_handler: redirect.after.login
             logout:       true
             anonymous:    true
+            
 
         
  

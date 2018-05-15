@@ -6,13 +6,16 @@ namespace AppBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @Notifiable(name="fos_user")
  */
-class User extends BaseUser
+class User extends BaseUser implements NotifiableInterface
 {
     /**
      * @ORM\Id
@@ -32,14 +35,12 @@ class User extends BaseUser
          */
         protected $last_name;
         
-        
-            /**
-         * @ORM\Column(type="string", nullable=true)
-         *
-         * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
-         * @Assert\File(mimeTypes={ "text/html" })
-         */
-          private $avatar;
+     /**
+     * @ORM\Column(type="string", nullable=true))
+     *
+     * @Assert\File(mimeTypes={ "image/jpg","image/png"  })
+     */
+          protected $image;
 
 
     public function __construct()
@@ -96,23 +97,28 @@ class User extends BaseUser
         return $this->last_name;
     }
 
-    /**
-     * Get the value of avatar
-     */ 
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
+   
 
-    /**
-     * Set the value of avatar
-     *
-     * @return  self
-     */ 
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
+        
 
-        return $this;
-    }
+          /**
+           * Get the value of image
+           */ 
+          public function getImage()
+          {
+                    return $this->image;
+          }
+
+          /**
+           * Set the value of image
+           *
+           * @return  self
+           */ 
+          public function setImage($image)
+          {
+                    $this->image = $image;
+
+                    return $this;
+          }
+
 }

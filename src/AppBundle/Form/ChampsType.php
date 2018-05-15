@@ -25,9 +25,11 @@ class ChampsType extends AbstractType
             'label_attr' => ['class' => 'form-control-label']
         )) ->add('typeChamps', ChoiceType::class, array(
                 'choices'  => array(
-                    'String' => true,
-                    'Number' => true,
-                    'char' => true,
+                    'string' => "text",
+                    'Number' => "number",
+                    'file' => "File",
+                    'date' => "date",
+					'TextArea' => 'textarea'
                 ),
                 'label' => "Type de champ : ",
                 'attr' => ['class' => 'form-control'],
